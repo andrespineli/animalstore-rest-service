@@ -40,9 +40,14 @@ class Owner extends Model implements AuthenticatableContract, AuthorizableContra
      * @var array
      */
     protected $hidden = [
-    	//        
+    	//
     ];
 
      protected $table = 'owner';
+
+     public function animal()
+     {
+         return $this->hasMany('App\Models\Animal');
+     }
 
 }
