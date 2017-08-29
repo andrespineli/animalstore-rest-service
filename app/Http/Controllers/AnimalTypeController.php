@@ -37,6 +37,14 @@ class AnimalTypeController extends Controller
         return $animalType;
     }
 
+    public function findBreedsByTypeId(Request $request, $animalTypeId)
+    {
+        $breedsByTypeId = AnimalType::findOrFail($animalTypeId);
+        $this->authorize('findBreedsByTypeId', $breedsByTypeId);
+        $breedsByTypeId = $breedsByTypeId->animalBreed()->get();
+        return $breedsByTypeId;
+    }
+
     public function createAnimalType(Request $request)
     {
         $this->validate($request, AnimalTypeValidation::$animalTypeValidation);

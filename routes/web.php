@@ -65,6 +65,7 @@ $app->group(['prefix' => 'api/v1', 'middleware' => ['cors', 'auth', 'token-expir
     //animal/types
     $app->get('animals/types', 'AnimalTypeController@getAnimalsTypes');
     $app->get('animals/types/{animalTypeId}', 'AnimalTypeController@findAnimalTypeById');
+    $app->get('animals/types/{animalTypeId}/breeds', 'AnimalTypeController@findBreedsByTypeId');
     $app->post('animals/types', 'AnimalTypeController@createAnimalType');
     $app->put('animals/types/{animalTypeId}', 'AnimalTypeController@updateAllAnimalTypeFields');
     $app->patch('animals/types/{animalTypeId}', 'AnimalTypeController@updateSomeAnimalTypeFields');

@@ -42,6 +42,11 @@ class AuthServiceProvider extends ServiceProvider
             return $clinic->id === $animalType->clinic_id;
         });
 
+        Gate::define('findBreedsByTypeId', function ($clinic, $breedsByTypeId) {
+            return $clinic->id === $breedsByTypeId->clinic_id;
+        });
+
+
         Gate::define('updateAllAnimalTypeFields', function ($clinic, $animalType) {
             return $clinic->id === $animalType->clinic_id;
         });
@@ -145,6 +150,7 @@ class AuthServiceProvider extends ServiceProvider
             if ($request->header('Authorization')) {
                 return Clinic::where('api_token', $request->header('Authorization'))->first();
             }
+
         });
 
 

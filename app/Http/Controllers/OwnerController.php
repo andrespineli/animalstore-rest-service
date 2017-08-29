@@ -37,6 +37,7 @@ class OwnerController extends Controller
         //  $owners[0]['animals'] = Animal::where('owner_id', $owner['id'])->get();
         $owners[0]['animals'] = \DB::table('animal')
                                     ->select(
+                                      'animal.id',
                                       'animal.clinic_id',
                                       'animal.owner_id',
                                       'vet.name as vet',

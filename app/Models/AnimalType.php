@@ -35,6 +35,6 @@ class AnimalType extends Model implements AuthenticatableContract, AuthorizableC
 
     public function animalBreed()
     {
-        return $this->hasMany('App\Models\AnimalBreed');
+        return $this->hasMany('App\Models\AnimalBreed', 'type_id');
     }
 }

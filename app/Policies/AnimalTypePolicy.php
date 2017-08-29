@@ -19,4 +19,9 @@ class AnimalTypePolicy
     {
         return $clinic->id === $animalType->clinic_id;
     }
+
+    public function findBreedsByTypeId($clinic, $breedsByTypeId)
+    {
+        return $clinic->id === $breedsByTypeId->clinic_id;
+    }
 }
