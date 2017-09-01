@@ -73,9 +73,7 @@ class OwnerController extends Controller
     public function createOwner(Request $request)
     {
         $this->validate($request, OwnerValidation::$ownerValidation);
-        $data = $request->all();
-        $data['clinic_id'] = \Auth::user()->id;
-        $owner = Owner::create($data);
+        $owner = Owner::create($request->all());
         return $owner;
     }
 

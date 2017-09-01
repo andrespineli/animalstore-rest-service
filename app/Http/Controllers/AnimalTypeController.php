@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Validations\AnimalTypeValidation;
-use App\Models\AnimalType;
 use App\Models\Clinic;
+use App\Models\AnimalType;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Gate;
@@ -30,7 +30,7 @@ class AnimalTypeController extends Controller
         return $animalsTypes;
     }
 
-    public function findAnimalTypeById(Request $request, $animalTypeId)
+    public function findAnimalTypeById($animalTypeId)
     {
         $animalType = AnimalType::findOrFail($animalTypeId);
         $this->authorize('findAnimalTypeById', $animalType);
@@ -48,9 +48,7 @@ class AnimalTypeController extends Controller
     public function createAnimalType(Request $request)
     {
         $this->validate($request, AnimalTypeValidation::$animalTypeValidation);
-        $data = $request->all();
-        $data['clinic_id'] = \Auth::user()->id;
-        $animalType = AnimalType::create($data);
+        $animalType = AnimalType::create($request->all());
         return $animalType;
     }
 

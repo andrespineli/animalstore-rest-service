@@ -12,19 +12,14 @@ class Clinic extends Model implements AuthenticatableContract, AuthorizableContr
 {
     use Authenticatable, Authorizable;
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
-        'user_name',
-        'document_number',
-        'password',
-        'email',
-        'cloud_path',
-        'my_dump_path'
+        'name','user_name', 'document_number', 'password', 'email', 'cloud_path','my_dump_path'
     ];
 
     /**

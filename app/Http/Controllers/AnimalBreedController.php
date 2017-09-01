@@ -47,9 +47,7 @@ class AnimalBreedController extends Controller
     public function createAnimalBreed(Request $request)
     {
         $this->validate($request, AnimalBreedValidation::$animalBreedValidation);
-        $data = $request->all();
-        $data['clinic_id'] = \Auth::user()->id;
-        $animalBreed = AnimalBreed::create($data);
+        $animalBreed = AnimalBreed::create($request->all());
         return $animalBreed;
     }
 

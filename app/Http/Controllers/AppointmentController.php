@@ -38,9 +38,7 @@ class AppointmentController extends Controller
     public function createAppointment(Request $request)
     {
         $this->validate($request, AppointmentValidation::$appointmentValidation);
-        $data = $request->all();
-        $data['clinic_id'] = \Auth::user()->id;
-        $appointment = Appointment::create($data);
+        $appointment = Appointment::create($request->all());
         return $appointment;
     }
 

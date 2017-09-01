@@ -65,9 +65,9 @@ $app->singleton(
 
 $app->routeMiddleware([
     'cors'=>Barryvdh\Cors\HandleCors::class,
-    'auth' => App\Http\Middleware\Authenticate::class,    
+    'auth' => App\Http\Middleware\Authenticate::class,
     'token-expired' => \App\Http\Middleware\TokenExpirationMiddleware::class,
-  //  'is-verified' => \App\Http\Middleware\IsVerifiedMiddleware::class,
+    //  'is-verified' => \App\Http\Middleware\IsVerifiedMiddleware::class,
 ]);
 
 /*

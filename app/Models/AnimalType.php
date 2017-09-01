@@ -18,8 +18,7 @@ class AnimalType extends Model implements AuthenticatableContract, AuthorizableC
      * @var array
      */
     protected $fillable = [
-        'clinic_id',
-        'name'
+        'clinic_id', 'name'
     ];
 
     /**

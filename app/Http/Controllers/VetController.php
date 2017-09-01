@@ -38,9 +38,7 @@ class VetController extends Controller
     public function createVet(Request $request)
     {
         $this->validate($request, VetValidation::$vetValidation);
-        $data = $request->all();
-        $data['clinic_id'] = \Auth::user()->id;
-        $vet = Vet::create($data);
+        $vet = Vet::create($request->all());
         return $vet;
     }
 

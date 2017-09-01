@@ -39,10 +39,7 @@ class AnimalController extends Controller
     {
         //$this->validate($request, AnimalValidation::$animalValidation);
         $this->validate($request, AnimalValidation::$animalValidation);
-
-        $data = $request->all();
-        $data['clinic_id'] = \Auth::user()->id;
-        $animal = Animal::create($data);
+        $animal = Animal::create($request->all());
         return $animal;
     }
 

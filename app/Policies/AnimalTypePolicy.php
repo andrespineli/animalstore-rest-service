@@ -9,19 +9,35 @@ use App\Models\AnimalType;
 class AnimalTypePolicy
 {
     /**
-     * Determine if the given post can be updated by the user.
+     * Determine if the given animal_type can be updated by the clinic.
      *
-     * @param  \App\User  $user
-     * @param  \App\Post  $post
+     * @param  \App\Models\Clinic  $clinic
+     * @param  \App\Models\AnimalType  $animalType
      * @return bool
      */
-    public function findAnimalTypeById($clinic, $animalType)
+    public function findAnimalTypeById(Clinic $clinic, AnimalType $animalType)
     {
         return $clinic->id === $animalType->clinic_id;
     }
 
-    public function findBreedsByTypeId($clinic, $breedsByTypeId)
+    public function findBreedsByTypeId(Clinic $clinic, AnimalType $breedsByTypeId)
     {
         return $clinic->id === $breedsByTypeId->clinic_id;
     }
+
+    public function updateAllAnimalTypeFields(Clinic $clinic, AnimalType $animalType)
+    {
+        return $clinic->id === $animalType->clinic_id;
+    }
+
+    public function updateSomeAnimalTypeFields(Clinic $clinic, AnimalType $animalType)
+    {
+        return $clinic->id === $animalType->clinic_id;
+    }
+
+    public function removeAnimalType(Clinic $clinic, AnimalType $animalType)
+    {
+        return $clinic->id === $animalType->clinic_id;
+    }
+
 }
