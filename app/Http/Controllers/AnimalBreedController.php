@@ -24,11 +24,6 @@ class AnimalBreedController extends Controller
 
     public function getAnimalsBreeds()
     {
-    /*    $animalsBreeds = Clinic::find(\Auth::user()->id)
-        ->animalBreed()
-        ->join('animal_type', 'animal_type.id', '=', 'animal_breed.type_id')
-        ->paginate();*/
-
         $animalsBreeds = \DB::table('animal_breed')
         ->select('animal_breed.id', 'animal_breed.type_id', 'animal_type.name as type', 'animal_breed.name', 'animal_breed.notes')
         ->join('animal_type', 'animal_type.id', '=', 'animal_breed.type_id')
