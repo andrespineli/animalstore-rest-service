@@ -17,7 +17,7 @@
     <nav class="uk-navbar-container uk-margin" uk-navbar>
         <div class="uk-navbar-center">
             <a class="uk-navbar-item uk-logo" href="#">
-                  <h2>AnimalStore v1</h2>
+                  <h2>AnimalStore v</h2>
             </a>
         </div>
     </nav>
