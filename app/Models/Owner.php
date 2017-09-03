@@ -47,7 +47,7 @@ class Owner extends Model implements AuthenticatableContract, AuthorizableContra
 
      public function animal()
      {
-         return $this->hasMany('App\Models\Animal');
+         return $this->hasMany('App\Models\Animal', 'owner_id');
      }
 
 }

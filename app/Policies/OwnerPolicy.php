@@ -20,6 +20,11 @@ class OwnerPolicy
         return $clinic->id === $owner->clinic_id;
     }
 
+    public function getAnimalsOfOwner(Clinic $clinic, Owner $owner)
+    {
+        return $clinic->id === $owner->clinic_id;
+    }
+
     public function updateAllOwnerFields(Clinic $clinic, Owner $owner)
     {
         return $clinic->id === $owner->clinic_id;

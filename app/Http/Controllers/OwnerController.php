@@ -62,6 +62,12 @@ class OwnerController extends Controller
         return $owners;
     }
 
+    public function getAnimalsOfOwner($ownerId)
+    {
+        $owner = Owner::findOrFail($ownerId);
+        $this->authorize('getAnimalsOfOwner', $owner);
+        return $owner->animal()->get();
+    }
 
     public function findOwnerById($ownerId)
     {

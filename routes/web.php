@@ -64,6 +64,7 @@ $app->group(['prefix' => 'api/v1', 'middleware' => ['cors', 'auth', 'token-expir
     $app->get('owners', 'OwnerController@getOwners');
     $app->get('owners/animals', 'OwnerController@getOwnersWithAnimals');
     $app->get('owners/{ownerId}', 'OwnerController@findOwnerById');
+    $app->get('owners/{ownerId}/animals', 'OwnerController@getAnimalsOfOwner');
     $app->post('owners', 'OwnerController@createOwner');
     $app->put('owners/{ownerId}', 'OwnerController@updateAllOwnerFields');
     $app->patch('owners/{ownerId}', 'OwnerController@updateSomeOwnerFields');

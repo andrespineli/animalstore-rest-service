@@ -37,7 +37,6 @@ class AnimalController extends Controller
 
     public function createAnimal(Request $request)
     {
-        //$this->validate($request, AnimalValidation::$animalValidation);
         $this->validate($request, AnimalValidation::$animalValidation);
         $animal = Animal::create($request->all());
         return $animal;
