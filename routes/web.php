@@ -11,6 +11,14 @@
 |
 */
 
+//welcome group
+$app->group(['middleware'=>['cors']], function () use ($app) {
+
+    //home
+    $app->get('/', 'WelcomeController@WelcomePage');
+
+});
+
 //public group
 $app->group(['prefix' => 'api/v1', 'middleware'=>['cors']], function () use ($app) {
 
@@ -22,7 +30,6 @@ $app->group(['prefix' => 'api/v1', 'middleware'=>['cors']], function () use ($ap
 
     //authentication
     $app->post('clinics/login', 'LoginController@clinicLogin');
-
 
 });
 

@@ -65,7 +65,7 @@
     <div data-uk-sticky >  
       <div class="uk-container uk-container-middle"> 
         <div class="uk-position-center"> 
-          UPAPP | www.upapp.com.br
+          AnimalStore/UPAPP | www.upapp.com.br
         </div> 
       </div>  
     </div>
