@@ -17,7 +17,7 @@
     <nav class="uk-navbar-container uk-margin" uk-navbar>
         <div class="uk-navbar-center">
             <a class="uk-navbar-item uk-logo" href="#">
-                  <h2>AnimalStore</h2>
+                  <h2>AnimalStore v1</h2>
             </a>
         </div>
     </nav>
@@ -65,7 +65,7 @@
     <div data-uk-sticky >  
       <div class="uk-container uk-container-middle"> 
         <div class="uk-position-center"> 
-          AnimalStore/UPAPP | www.upapp.com.br
+          UPAPP | www.upapp.com.br
         </div> 
       </div>  
     </div>
