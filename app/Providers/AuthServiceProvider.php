@@ -13,6 +13,7 @@ use App\Policies\AnimalBreedPolicy;
 use App\Policies\AnimalPolicy;
 use App\Policies\AnimalTypePolicy;
 use App\Policies\AppointmentPolicy;
+use App\Policies\ClinicPolicy;
 use App\Policies\OwnerPolicy;
 use App\Policies\VetPolicy;
 use Illuminate\Support\Facades\Gate;
@@ -47,6 +48,7 @@ class AuthServiceProvider extends ServiceProvider
         Gate::policy(AnimalBreed::class, AnimalBreedPolicy::class);
         Gate::policy(AnimalType::class, AnimalTypePolicy::class);
         Gate::policy(Appointment::class, AppointmentPolicy::class);
+        Gate::policy(Clinic::class, ClinicPolicy::class);
         Gate::policy(Owner::class, OwnerPolicy::class);
         Gate::policy(Vet::class, VetPolicy::class);
 

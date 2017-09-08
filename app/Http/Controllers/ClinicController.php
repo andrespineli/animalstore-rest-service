@@ -33,15 +33,19 @@ class ClinicController extends Controller
         return $clinic;
     }
 
-    public function getClinicStatistics()
+    public function getClinicAndStatistics()
     {
-        $statistics = [
-            'animals' => Animal::where('clinic_id', \Auth::user()->id)->count(),
-            'owners' => Owner::where('clinic_id', \Auth::user()->id)->count(),
-            'vets' => Vet::where('clinic_id', \Auth::user()->id)->count(),
-            'breeds' => AnimalBreed::where('clinic_id', \Auth::user()->id)->count()
+        $clinicAndstatistics = [
+            'clinic' => Clinic::find(\Auth::user()->id),
+            'statistics' => [
+                'animals' => Animal::where('clinic_id', \Auth::user()->id)->count(),
+                'owners' => Owner::where('clinic_id', \Auth::user()->id)->count(),
+                'vets' => Vet::where('clinic_id', \Auth::user()->id)->count(),
+                'breeds' => AnimalBreed::where('clinic_id', \Auth::user()->id)->count()
+            ]
         ];
-        return response($statistics, 200);
+
+        return response($clinicAndstatistics, 200);
     }
 
     public function findClinicById($clinicId)

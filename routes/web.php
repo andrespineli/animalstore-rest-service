@@ -44,7 +44,7 @@ $app->group(['prefix' => 'api/v1', 'middleware' => ['cors', 'auth', 'token-expir
 
     //clinics
     $app->get('clinics', 'ClinicController@getClinic');
-    $app->get('clinics/statistics', 'ClinicController@getClinicStatistics');
+    $app->get('clinics/statistics', 'ClinicController@getClinicAndStatistics');
     $app->get('clinics/{clinicId}', 'ClinicController@findClinicById');
     $app->put('clinics', 'ClinicController@updateAllClinicFields');
     $app->patch('clinics', 'ClinicController@updateSomeClinicFields');

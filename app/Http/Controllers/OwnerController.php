@@ -31,11 +31,12 @@ class OwnerController extends Controller
 
     public function getOwnersWithAnimals()
     {
-        $owners = Clinic::find(\Auth::user()->id)->owner()->get();
 
+        $owners = Clinic::find(\Auth::user()->id)->owner()->get();
+        $i = 0;
         foreach ($owners as $owner) {
-        //  $owners[0]['animals'] = Animal::where('owner_id', $owner['id'])->get();
-        $owners[0]['animals'] = \DB::table('animal')
+
+            $owners[$i]['animals'] = \DB::table('animal')
                                     ->select(
                                       'animal.id',
                                       'animal.clinic_id',
@@ -55,10 +56,8 @@ class OwnerController extends Controller
                                     ->join('animal_type', 'animal_type.id', '=', 'animal.type_id')
                                     ->join('animal_breed', 'animal_breed.id', '=', 'animal.breed_id')
                                     ->where('owner_id', $owner['id'])->get();
+            $i++;
         }
-
-
-
         return $owners;
     }
 
@@ -66,7 +65,27 @@ class OwnerController extends Controller
     {
         $owner = Owner::findOrFail($ownerId);
         $this->authorize('getAnimalsOfOwner', $owner);
-        return $owner->animal()->get();
+        return $owner->animal()->select(
+                    'animal.id',
+                    'animal.clinic_id',
+                    'animal.owner_id',
+                    'vet.name as vet',
+                    'animal_type.name as type',
+                    'animal_breed.name as breed',
+                    'animal.name',
+                    'animal.gender',
+                    'animal.notes',
+                    'animal.food_types',
+                    'animal.birth_date',
+                    'animal.weight',
+                    'animal.color'
+                )
+                ->join('vet', 'vet.id', '=', 'animal.vet_id')
+                ->join('animal_type', 'animal_type.id', '=', 'animal.type_id')
+                ->join('animal_breed', 'animal_breed.id', '=', 'animal.breed_id')
+                ->get();
+
+
     }
 
     public function findOwnerById($ownerId)
