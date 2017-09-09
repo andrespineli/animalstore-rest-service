@@ -20,7 +20,9 @@ class CreateVetTable extends Migration
                 ->references('id')
                 ->on('clinic');
             $table->string('name', 255);            
-            $table->string('document_number', 255);
+            $table->string('document_number_cpf', 11);
+            $table->string('document_number_crmv', 11);
+            $table->string('state', 2);
             $table->string('email', 255);          
             $table->timestamps();
         });        

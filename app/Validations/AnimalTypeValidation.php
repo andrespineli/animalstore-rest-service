@@ -10,8 +10,8 @@ class AnimalTypeValidation
 
     ];
 
-    public static $animalTypeValidationPatch = [             
-        'name' => 'max:255'
-    ];
+//    public static $animalTypeValidationPatch = [
+//        'name' => 'max:255'
+//    ];
 
   }

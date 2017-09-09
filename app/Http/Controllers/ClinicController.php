@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\AnimalType;
+use App\Models\Appointment;
 use App\Validations\ClinicValidation;
 use App\Models\Clinic;
 use App\Models\Animal;
@@ -41,7 +43,9 @@ class ClinicController extends Controller
                 'animals' => Animal::where('clinic_id', \Auth::user()->id)->count(),
                 'owners' => Owner::where('clinic_id', \Auth::user()->id)->count(),
                 'vets' => Vet::where('clinic_id', \Auth::user()->id)->count(),
-                'breeds' => AnimalBreed::where('clinic_id', \Auth::user()->id)->count()
+                'types' => AnimalType::where('clinic_id', \Auth::user()->id)->count(),
+                'breeds' => AnimalBreed::where('clinic_id', \Auth::user()->id)->count(),
+                'appointments' => Appointment::where('clinic_id', \Auth::user()->id)->count()
             ]
         ];
 

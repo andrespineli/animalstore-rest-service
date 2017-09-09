@@ -20,7 +20,9 @@ class Vet extends Model implements AuthenticatableContract, AuthorizableContract
     protected $fillable = [
         'clinic_id',
         'name',
-        'document_number',
+        'document_number_cpf',
+        'document_number_crmv',
+        'state',
         'email'
 
     ];

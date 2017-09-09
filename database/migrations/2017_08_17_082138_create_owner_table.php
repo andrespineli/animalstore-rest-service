@@ -20,8 +20,8 @@ class CreateOwnerTable extends Migration
                   ->references('id')
                   ->on('clinic');
             $table->string('name', 255);            
-            $table->string('document_number_cpf', 255);
-            $table->string('document_number_rg', 255);
+            $table->string('document_number_cpf', 11);
+            $table->string('document_number_rg', 11);
             $table->boolean('gender');
             $table->date('birth_date');
             $table->string('email', 255);
