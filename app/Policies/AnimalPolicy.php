@@ -15,7 +15,7 @@ class AnimalPolicy
      * @param  \App\Models\Animal  $animal
      * @return bool
      */
-    public function getServiceSheet(Clinic $clinic, Animal $animal)
+    public function getPrintablesSheet(Clinic $clinic, Animal $animal)
     {
         return $clinic->id === $animal->clinic_id;
     }

@@ -33,7 +33,7 @@ class AppointmentController extends Controller
     public function getAppointmentSheet($animalId, $appointmentId)
     {
         $appointmentSheet = Animal::findOrFail($animalId);
-        $this->authorize('getAppointmentSheet', $appointmentSheet);
+        $this->authorize('getPrintablesSheet', $appointmentSheet);
         return $appointmentSheet->select(
             'animal.clinic_id',
             'owner.name as owner',

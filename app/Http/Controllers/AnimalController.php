@@ -31,7 +31,7 @@ class AnimalController extends Controller
     public function getServiceSheet($animalId)
     {
         $serviceSheet = Animal::findOrFail($animalId);
-        $this->authorize('getServiceSheet', $serviceSheet);
+        $this->authorize('getPrintablesSheet', $serviceSheet);
         return $serviceSheet->select(
             'animal.clinic_id',
             'owner.name as owner',
