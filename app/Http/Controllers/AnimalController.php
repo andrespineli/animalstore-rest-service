@@ -28,6 +28,34 @@ class AnimalController extends Controller
         return $animals;
     }
 
+    public function getServiceSheet($animalId)
+    {
+        $serviceSheet = Animal::findOrFail($animalId);
+        $this->authorize('getServiceSheet', $serviceSheet);
+        return $serviceSheet->select(
+            'animal.clinic_id',
+            'owner.name as owner',
+            'owner.birth_date as owner_birth',
+            'owner.document_number_cpf',
+            'owner.document_number_rg',
+            'owner.address',
+            'owner.city',
+            'owner.state',
+            'animal.name as animal',
+            'animal_breed.name as breed',
+            'animal_type.name as type',
+            'animal.color',
+            'animal.food_types',
+            'animal.birth_date as animal_birth',
+            'animal.gender',
+            'animal.weight'
+        )->join('owner', 'owner.id', '=', 'animal.owner_id')
+         ->join('animal_breed', 'animal_breed.id', '=', 'animal.breed_id')
+         ->join('animal_type', 'animal_type.id', '=', 'animal.type_id')
+         ->where('animal.id', $animalId)->get();
+    }
+
+
     public function findAnimalById($animalId)
     {
         $animal = Animal::findOrFail($animalId);

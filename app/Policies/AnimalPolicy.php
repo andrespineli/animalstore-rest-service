@@ -15,6 +15,11 @@ class AnimalPolicy
      * @param  \App\Models\Animal  $animal
      * @return bool
      */
+    public function getServiceSheet(Clinic $clinic, Animal $animal)
+    {
+        return $clinic->id === $animal->clinic_id;
+    }
+
     public function findAnimalById(Clinic $clinic, Animal $animal)
     {
         return $clinic->id === $animal->clinic_id;

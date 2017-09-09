@@ -6,10 +6,9 @@ class AppointmentValidation
 {
 
   public static $appointmentValidation = [
-        'animal_id' => 'required|integer|max:11|exists:animal_breed,id',
-        'clinic_id' => 'required|integer|max:11|exists:clinic,id',
+        'animal_id' => 'required|integer|exists:animal,id',
         'appointment_date' => 'required|date|max:255',
-        'temperature' => 'required|regex:/^\d*(\.\d{2})?$/|max:11',
+        'temperature' => 'required|regex:/^\d*(\.\d{1})?$/|max:11',
         'fc' => 'required|max:255',
         'physical_condition' => 'required|max:255',
         'hydration' => 'required|max:255',
@@ -27,10 +26,9 @@ class AppointmentValidation
     ];
 
     public static $appointmentValidationPatch = [
-        'animal_id' => 'integer|max:11|exists:animal_breed,id',
-        'clinic_id' => 'integer|max:11|exists:clinic,id',
+        'animal_id' => 'integer|max:11|exists:animal,id',
         'appointment_date' => 'date|max:255',
-        'temperature' => 'regex:/^\d*(\.\d{2})?$/|max:11',
+        'temperature' => 'regex:/^\d*(\.\d{1})?$/|max:11',
         'fc' => 'max:255',
         'physical_condition' => 'max:255',
         'hydration' => 'max:255',

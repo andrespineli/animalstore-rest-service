@@ -96,11 +96,15 @@ $app->group(['prefix' => 'api/v1', 'middleware' => ['cors', 'auth', 'token-expir
     $app->delete('animals/{animalId}', 'AnimalController@removeAnimal');
 
     //appointment
-    $app->get('appointments', 'AppointmentController@getAppointments');
+    $app->get('animals/{animalId}/appointments', 'AppointmentController@getAnimalAppointments');
     $app->get('appointments/{appointmentId}', 'AppointmentController@findAppointmentById');
     $app->post('appointments', 'AppointmentController@createAppointment');
     $app->put('appointments/{appointmentId}', 'AppointmentController@updateAllAppointmentFields');
     $app->patch('appointments/{appointmentId}', 'AppointmentController@updateSomeAppointmentFields');
     $app->delete('appointments/{appointmentId}', 'AppointmentController@removeAppointment');
+
+    //printable
+    $app->get('printable/services/{animalId}', 'AnimalController@getServiceSheet');
+    $app->get('printable/appointments/{animalId}/{appointmentId}', 'AppointmentController@getAppointmentSheet');
 
 });

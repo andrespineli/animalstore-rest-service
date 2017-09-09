@@ -15,6 +15,12 @@ class AppointmentPolicy
      * @param  \App\Models\Appointment  $appointment
      * @return bool
      */
+
+    public function getAppointmentSheet(Clinic $clinic, Animal $animal)
+    {
+        return $clinic->id === $animal->clinic_id;
+    }
+
     public function findAppointmentById(Clinic $clinic, Appointment $appointment)
     {
         return $clinic->id === $appointment->clinic_id;
