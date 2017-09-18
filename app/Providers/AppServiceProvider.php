@@ -6,6 +6,7 @@ use App\Models\Animal;
 use App\Models\AnimalBreed;
 use App\Models\AnimalType;
 use App\Models\Appointment;
+use App\Models\Budget;
 use App\Models\Owner;
 use App\Models\Vet;
 use Illuminate\Support\ServiceProvider;
@@ -38,6 +39,10 @@ class AppServiceProvider extends ServiceProvider
 
         Appointment::creating(function($appointment){
             $appointment->clinic_id = \Auth::user()->id;
+        });
+
+        Budget::creating(function($budget){
+            $budget->clinic_id = \Auth::user()->id;
         });
 
         Owner::creating(function($owner){

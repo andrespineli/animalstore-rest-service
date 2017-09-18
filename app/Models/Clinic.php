@@ -64,4 +64,14 @@ class Clinic extends Model implements AuthenticatableContract, AuthorizableContr
     {
         return $this->hasMany('App\Models\Appointment');
     }
+
+    public function budget()
+    {
+        return $this->hasMany('App\Models\Budget');
+    }
+
+    public function budgetAppointment()
+    {
+        return $this->hasMany('App\Models\BudgetAppointment');
+    }
 }

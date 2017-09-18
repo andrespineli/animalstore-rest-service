@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>785fd75c-7d98-4231-90fa-166b35631e9d.SCHEMA:animalstore</OriginalElement>
+  <nodes>
+    <node x="378.75" y="816.0">785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal_breed</node>
+    <node x="891.0" y="0.0">785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.migrations</node>
+    <node x="319.5" y="493.5">785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal_type</node>
+    <node x="340.3385416666667" y="0.0">785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.clinic</node>
+    <node x="378.75260416666663" y="1058.0">785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal</node>
+    <node x="120.62760416666669" y="1484.0">785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.appointment</node>
+    <node x="535.5" y="447.5">785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.vet</node>
+    <node x="40.5" y="367.0">785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.owner</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal_type">
+      <point x="-39.99999999999994" y="-188.0" />
+      <point x="438.75260416666674" y="1028.0" />
+      <point x="368.25" y="1028.0" />
+      <point x="-48.75" y="73.0" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.appointment" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.clinic">
+      <point x="-67.5" y="-257.0" />
+      <point x="188.12760416666669" y="1459.0" />
+      <point x="30.0" y="1459.0" />
+      <point x="30.0" y="337.0" />
+      <point x="360.5052083333333" y="337.0" />
+      <point x="-100.83333333333337" y="153.5" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.appointment" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal">
+      <point x="67.5" y="-257.0" />
+      <point x="323.1276041666667" y="1459.0" />
+      <point x="478.75260416666663" y="1459.0" />
+      <point x="0.0" y="188.0" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.clinic">
+      <point x="80.00000000000006" y="-188.0" />
+      <point x="558.7526041666667" y="1038.0" />
+      <point x="816.0" y="1038.0" />
+      <point x="816.0" y="327.0" />
+      <point x="562.171875" y="327.0" />
+      <point x="100.83333333333339" y="153.5" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.vet" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.clinic">
+      <point x="0.0" y="-119.0" />
+      <point x="670.5" y="337.0" />
+      <point x="521.8385416666666" y="337.0" />
+      <point x="60.5" y="153.5" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal_breed" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal_type">
+      <point x="-48.75" y="-96.0" />
+      <point x="427.5" y="791.0" />
+      <point x="465.75" y="791.0" />
+      <point x="48.75" y="73.0" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal_breed">
+      <point x="5.6843418860808015E-14" y="-188.0" />
+      <point x="478.75260416666674" y="1038.0" />
+      <point x="476.25" y="1038.0" />
+      <point x="0.0" y="96.0" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.owner" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.clinic">
+      <point x="0.0" y="-199.5" />
+      <point x="170.0" y="347.0" />
+      <point x="400.8385416666667" y="347.0" />
+      <point x="-60.5" y="153.5" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.vet">
+      <point x="40.00000000000006" y="-188.0" />
+      <point x="518.7526041666667" y="1028.0" />
+      <point x="670.5" y="1028.0" />
+      <point x="0.0" y="119.0" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal_type" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.clinic">
+      <point x="0.0" y="-73.0" />
+      <point x="417.0" y="347.0" />
+      <point x="441.171875" y="347.0" />
+      <point x="-20.166666666666686" y="153.5" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.owner">
+      <point x="-79.99999999999994" y="-188.0" />
+      <point x="398.75260416666674" y="1038.0" />
+      <point x="170.0" y="1038.0" />
+      <point x="0.0" y="199.5" />
+    </edge>
+    <edge source="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.animal_breed" target="785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.clinic">
+      <point x="48.75" y="-96.0" />
+      <point x="525.0" y="347.0" />
+      <point x="481.5052083333333" y="347.0" />
+      <point x="20.16666666666663" y="153.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.43161546085232905" x="539.5" y="999.0" />
+  <SelectedNodes>
+    <node>785fd75c-7d98-4231-90fa-166b35631e9d.TABLE:animalstore.owner</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

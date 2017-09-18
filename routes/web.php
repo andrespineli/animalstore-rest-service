@@ -107,4 +107,18 @@ $app->group(['prefix' => 'api/v1', 'middleware' => ['cors', 'auth', 'token-expir
     $app->get('printable/services/{animalId}', 'AnimalController@getServiceSheet');
     $app->get('printable/appointments/{animalId}/{appointmentId}', 'AppointmentController@getAppointmentSheet');
 
+    //budget
+    $app->get('budgets', 'BudgetController@getBudgets');
+    $app->get('budgets/{budgetId}', 'BudgetController@findBudgetById');
+    $app->post('budgets', 'BudgetController@createBudget');
+    $app->put('budgets/{budgetId}', 'BudgetController@updateAllBudgetFields');
+    $app->delete('budgets/{budgetId}', 'BudgetController@removeBudget');
+
+    //appointment/budget
+    $app->get('appointments/{appointmentId}/budgets', 'BudgetAppointmentsController@getBudgetsAppointments');
+    $app->get('appointments/{appointmentId}/budgets/{budgetId}', 'BudgetAppointmentsController@findBudgetAppointmentById');
+    $app->post('appointments/{appointmentId/budgets}', 'BudgetAppointmentsController@createBudgetAppointment');
+    $app->put('appointments/{appointmentId/budgets/{budgetId}', 'BudgetAppointmentsController@updateAllBudgetAppointmentFields');
+    $app->delete('appointments/{appointmentId}/budgets/{budgetId}', 'BudgetAppointmentsController@removeBudgetAppointment');
+
 });
