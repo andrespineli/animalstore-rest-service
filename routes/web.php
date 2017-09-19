@@ -115,10 +115,10 @@ $app->group(['prefix' => 'api/v1', 'middleware' => ['cors', 'auth', 'token-expir
     $app->delete('budgets/{budgetId}', 'BudgetController@removeBudget');
 
     //appointment/budget
-    $app->get('appointments/{appointmentId}/budgets', 'BudgetAppointmentsController@getBudgetsAppointments');
-    $app->get('appointments/{appointmentId}/budgets/{budgetId}', 'BudgetAppointmentsController@findBudgetAppointmentById');
-    $app->post('appointments/{appointmentId/budgets}', 'BudgetAppointmentsController@createBudgetAppointment');
-    $app->put('appointments/{appointmentId/budgets/{budgetId}', 'BudgetAppointmentsController@updateAllBudgetAppointmentFields');
-    $app->delete('appointments/{appointmentId}/budgets/{budgetId}', 'BudgetAppointmentsController@removeBudgetAppointment');
+    $app->get('appointments/{appointmentId}/budgets', 'BudgetAppointmentController@getBudgetsAppointments');
+    $app->get('appointments/{appointmentId}/budgets/{budgetId}', 'BudgetAppointmentController@findBudgetAppointmentById');
+    $app->post('appointments/{appointmentId}/budgets', 'BudgetAppointmentController@createBudgetAppointment');
+    $app->put('appointments/{appointmentId/budgets/{budgetId}', 'BudgetAppointmentController@updateAllBudgetAppointmentFields');
+    $app->delete('appointments/{appointmentId}/budgets/{budgetId}', 'BudgetAppointmentController@removeBudgetAppointment');
 
 });

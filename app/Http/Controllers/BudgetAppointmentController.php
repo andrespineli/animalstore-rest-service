@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\BudgetAppointment;
 use App\Validations\BudgetAppointmentValidation;
 use App\Models\Clinic;
@@ -23,9 +24,13 @@ class BudgetAppointmentController extends Controller
         //
     }
 
-    public function getBudgetsAppointments()
+    public function getBudgetsAppointments($appointmentId)
     {
-        $budgetsAppointments = Clinic::find(\Auth::user()->id)->budgetAppointment()->paginate();
+        $budgetsAppointments = Appointment::find($appointmentId)
+            ->budgetAppointment()
+            ->join('budget', 'budget.id', '=', 'budget_appointment.budget_id')
+            ->select('')
+            ->get();
         return $budgetsAppointments;
     }
 
@@ -36,10 +41,12 @@ class BudgetAppointmentController extends Controller
         return $budgetAppointment;
     }
 
-    public function createBudgetAppointment(Request $request)
+    public function createBudgetAppointment(Request $request, $appointmentId)
     {
         $this->validate($request, BudgetAppointmentValidation::$budgetAppointmentValidation);
-        $budgetAppointment = BudgetAppointment::create($request->all());
+        $data = $request->all();
+        $data['appointment_id'] = $appointmentId;
+        $budgetAppointment = BudgetAppointment::create($data);
         return $budgetAppointment;
     }
 

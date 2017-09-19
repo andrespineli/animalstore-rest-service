@@ -49,4 +49,9 @@ class Appointment extends Model implements AuthenticatableContract, Authorizable
 
      protected $table = 'appointment';
 
+    public function budgetAppointment()
+    {
+        return $this->hasMany('App\Models\BudgetAppointment');
+    }
+
 }
