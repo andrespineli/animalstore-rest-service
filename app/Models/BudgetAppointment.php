@@ -34,4 +34,9 @@ class BudgetAppointment extends Model implements AuthenticatableContract, Author
 
     protected $table = 'budget_appointment';
 
+    public function appointment()
+    {
+        return $this->hasOne('App\Models\Appointment');
+    }
+
 }

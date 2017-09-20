@@ -15,6 +15,12 @@ class AnimalPolicy
      * @param  \App\Models\Animal  $animal
      * @return bool
      */
+
+    public function getBudgetAppointmentSheet(Clinic $clinic, Animal $animal)
+    {
+        return $clinic->id === $animal->clinic_id;
+    }
+
     public function getPrintablesSheet(Clinic $clinic, Animal $animal)
     {
         return $clinic->id === $animal->clinic_id;

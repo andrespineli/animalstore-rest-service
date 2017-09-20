@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Animal;
 use App\Models\Appointment;
 use App\Models\BudgetAppointment;
 use App\Validations\BudgetAppointmentValidation;
@@ -26,12 +27,45 @@ class BudgetAppointmentController extends Controller
 
     public function getBudgetsAppointments($appointmentId)
     {
-        $budgetsAppointments = Appointment::find($appointmentId)
+        $budgetsAppointment = Appointment::find($appointmentId)
             ->budgetAppointment()
             ->join('budget', 'budget.id', '=', 'budget_appointment.budget_id')
-            ->select('')
+            ->select(
+                'budget_appointment.id',
+                'budget_appointment.clinic_id',
+                'budget_appointment.budget_id',
+                'budget_appointment.appointment_id',
+                'budget.description',
+                'budget.amount'
+            )
             ->get();
-        return $budgetsAppointments;
+        return $budgetsAppointment;
+    }
+
+    public function getBudgetsAppointmentsSum($appointmentId)
+    {
+        $budgetsAppointment = Appointment::find($appointmentId)
+            ->budgetAppointment()
+            ->join('budget', 'budget.id', '=', 'budget_appointment.budget_id')
+            ->select(
+                'budget_appointment.id',
+                'budget_appointment.clinic_id',
+                'budget_appointment.budget_id',
+                'budget_appointment.appointment_id',
+                'budget.description',
+                'budget.amount'
+            )
+            ->sum('budget.amount');
+        return $budgetsAppointment;
+    }
+
+    public function getBudgetAppointmentSheet($animalId, $appointmentId)
+    {
+        $budgetAppointmentSheet = new AnimalController();
+        $budgetAppointmentSheet = $budgetAppointmentSheet->getServiceSheet($animalId);
+        $budgetAppointmentSheet[0]['budget_appointment'] = $this->getBudgetsAppointments($appointmentId);
+        $budgetAppointmentSheet[0]['total_amount'] = $this->getBudgetsAppointmentsSum($appointmentId);
+        return $budgetAppointmentSheet;
     }
 
     public function findBudgetAppointmentById($budgetAppointmentId)
@@ -61,7 +95,7 @@ class BudgetAppointmentController extends Controller
 
     public function removeBudgetAppointment($budgetAppointmentId)
     {
-        $budgetAppointment = Budget::findOrFail($budgetAppointmentId);
+        $budgetAppointment = BudgetAppointment::findOrFail($budgetAppointmentId);
         $this->authorize('removeBudgetAppointment', $budgetAppointment);
         $budgetAppointment->delete();
         return response('', 204);

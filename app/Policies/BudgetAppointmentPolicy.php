@@ -15,6 +15,13 @@ class BudgetAppointmentPolicy
      * @param  \App\Models\Vet  $vet
      * @return bool
      */
+
+
+    public function getBudgetAppointmentSheet(Clinic $clinic, BudgetAppointment $budgetAppointmentSheet)
+    {
+        return $clinic->id === $budgetAppointmentSheet->clinic_id;
+    }
+
     public function findBudgetAppointmentById(Clinic $clinic, BudgetAppointment $budgetAppointment)
     {
         return $clinic->id === $budgetAppointment->clinic_id;

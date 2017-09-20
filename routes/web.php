@@ -106,6 +106,7 @@ $app->group(['prefix' => 'api/v1', 'middleware' => ['cors', 'auth', 'token-expir
     //printable
     $app->get('printable/services/{animalId}', 'AnimalController@getServiceSheet');
     $app->get('printable/appointments/{animalId}/{appointmentId}', 'AppointmentController@getAppointmentSheet');
+    $app->get('printable/budgets/{animalId}/{appointmentId}', 'BudgetAppointmentController@getBudgetAppointmentSheet');
 
     //budget
     $app->get('budgets', 'BudgetController@getBudgets');
@@ -116,9 +117,7 @@ $app->group(['prefix' => 'api/v1', 'middleware' => ['cors', 'auth', 'token-expir
 
     //appointment/budget
     $app->get('appointments/{appointmentId}/budgets', 'BudgetAppointmentController@getBudgetsAppointments');
-    $app->get('appointments/{appointmentId}/budgets/{budgetId}', 'BudgetAppointmentController@findBudgetAppointmentById');
     $app->post('appointments/{appointmentId}/budgets', 'BudgetAppointmentController@createBudgetAppointment');
-    $app->put('appointments/{appointmentId/budgets/{budgetId}', 'BudgetAppointmentController@updateAllBudgetAppointmentFields');
-    $app->delete('appointments/{appointmentId}/budgets/{budgetId}', 'BudgetAppointmentController@removeBudgetAppointment');
+    $app->delete('appointments/{appointmentId}/budgets/{budgetAppointmentId}', 'BudgetAppointmentController@removeBudgetAppointment');
 
 });
