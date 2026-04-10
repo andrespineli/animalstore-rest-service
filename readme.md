@@ -6,8 +6,8 @@ Software para gerenciamento de clinicas veterinárias - Back-End (Laravel/Lumen 
 git clone https://github.com/andrespineli/animalstore-rest-service
 composer install
 ```
-## Projeto do Front
- - https://github.com/andrespineli/animalstore-angularjs
+## Projeto do Front-end
+ - https://github.com/andrespineli/animalstore-fe
 
 ## Features
 - [x] Gerenciamento de pacientes (animais)
